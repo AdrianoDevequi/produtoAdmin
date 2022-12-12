@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container">
+            <div class="row mb-2 pt-5">
+                <div class="col">
+                <h1 class="pb-3 fw-light">Produtos cadastradas</h1>
+                <div th:replace="fragments/mensagens :: mensagens-produtos"></div>
+                
+                    <!--Tabela-->
+                    <table class="table table-striped table-responsive" id="tabela-produtos">
+                        <thead class="thead">
+                        <tr>
+                            <th onclick="sortTable(0)">ID</th>
+                            <th onclick="sortTable(1)">Nome</th>
+                            <th onclick="sortTable(2)">Descricao</th>
+                            <th onclick="sortTable(3)">Preço</th>
+                            <th onclick="sortTable(4)">Categoria</th>
+                            <th onclick="sortTable(5)">Fornecedor</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="prod : ${produtos}">
+                                <td th:text="${prod.id}"></td>
+                                <td th:text="${prod.nome}"></td>
+                                <td th:text="${prod.descricao}"></td>
+                                <td th:text="${prod.preco}"></td>
+                                <td th:text="${prod.categoria.nome}"></td>
+                                <td th:text="${prod.fornecedor.nome}"></td>
+
+                                <!--Editar -->
+                                <td><a style="text-decoration: none; color:blue"
+                                    th:href="@{/produtos/editar-produto/{id}(id=${prod.id})}"
+                                    class="editBtn" data-toggle="tooltip"
+                                    data-placement="right" title="Editar">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                </td>
+                                <!--Excluir -->
+                                <td>
+                                    <a data-bs-toggle="modal" id="remove-link" data-bs-target="#delete-produto-modal" 
+                                    th:onclick="'setRowIndexAndUserId(this, ' + ${prod.id} + ')'" 
+                                    style="text-decoration: none; color:red">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div th:replace="fragments/deleteUserModal :: delete-produto-modal"></div>
+            <div class="row pb-5">
+                <div class="col">
+                    <a th:href="@{/produtos/cadastrar-produto}" >
+                        <button type="button" class="btn btn-success">Novo produto</button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

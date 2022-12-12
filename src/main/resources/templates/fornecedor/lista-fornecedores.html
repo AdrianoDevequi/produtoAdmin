@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container">
+            <div class="row mb-2 pt-5">
+                <div class="col">
+                <h1 class="pb-3 fw-light">Fornecedores</h1>
+                <div th:replace="fragments/mensagens :: mensagens-fornecedores"></div>
+
+                    <!--Tabela-->
+                    <table class="table table-striped table-responsive " id="tabela-fornecedores">
+                        <thead class="thead">
+                        <tr>
+                            <th onclick="sortTable(0)">ID</th>
+                            <th onclick="sortTable(1)">Nome</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="forn : ${fornecedores}">
+                                <td th:text="${forn.id}"></td>
+                                <td th:text="${forn.nome}"></td>
+   
+
+                                <!--Editar -->
+                                <td><a style="text-decoration: none; color:blue"
+                                    th:href="@{/fornecedores/editar-fornecedor/{id}(id=${forn.id})}"
+                                    class="editBtn" data-toggle="tooltip"
+                                    data-placement="right" title="Editar">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                </td>
+                                <!--Excluir -->
+                                <td>
+                                    <a data-bs-toggle="modal" id="remove-link" data-bs-target="#delete-fornecedor-modal" 
+                                    th:onclick="'setRowIndexAndUserId(this, ' + ${forn.id} + ')'" 
+                                    style="text-decoration: none; color:red">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div th:replace="fragments/deleteUserModal :: delete-fornecedor-modal"></div>
+            <div class="row pb-5">
+                <div class="col">
+                    <a href="/fornecedores/cadastrar-fornecedor" >
+                        <button type="button" class="btn btn-success">Novo fornecedor</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

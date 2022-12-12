@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container">
+            <div class="row mb-2 pt-5">
+                <div class="col">
+                <h1 class="pb-3 fw-light">Categorias cadastradas</h1>
+                <div th:replace="fragments/mensagens :: mensagens-categorias"></div>
+                    <!--Tabela-->
+                    <table class="table table-striped table-responsive" id="tabela-categorias">
+                        <thead class="thead">
+                        <tr>
+                            <th onclick="sortTable(0)">ID</th>
+                            <th onclick="sortTable(1)">Nome</th>
+                            <th ></th>
+                            <th ></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="cat : ${categorias}">
+                                <td th:text="${cat.id}"></td>
+                                <td th:text="${cat.nome}"></td>
+
+
+                                <!--Editar -->
+                                <td><a style="text-decoration: none; color:blue"
+                                    th:href="@{/categorias/editar-categoria/{id}(id=${cat.id})}"
+                                    class="editBtn" data-toggle="tooltip"
+                                    data-placement="right" title="Editar">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                </td>
+                                <!--Excluir -->
+                                <td>
+                                    <a data-bs-toggle="modal" id="remove-link" data-bs-target="#delete-categoria-modal" 
+                                    th:onclick="'setRowIndexAndUserId(this, ' + ${cat.id} + ')'" 
+                                    style="text-decoration: none; color:red">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div th:replace="fragments/deleteUserModal :: delete-categoria-modal"></div>
+            <a th:href="@{/categorias/cadastrar-categoria}" >
+                <button type="button" class="btn btn-success">Nova categoria</button>
+            </a>
+        </div>
+    
+<footer th:replace="fragments/footer :: footer"></footer>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

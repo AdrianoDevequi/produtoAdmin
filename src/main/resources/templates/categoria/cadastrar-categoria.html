@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container pt-5">
+                <h1 class="pb-3 fw-light">Cadastrar nova categoria</h1>
+                    <form class="admin-form" th:action="@{/categorias/cadastrar-categoria}" th:object="${novaCategoria}"
+                          th:method="post" method="post">
+
+                        <div class="form-group">
+                            <label for="newUserName">Nome categoria</label>
+                            <input type="text" class="form-control" th:field="*{nome}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col">
+                                <a class="btn btn-dark" th:href="@{/categorias/lista-categorias}">Cancel</a>
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+             
+  
+        </div>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

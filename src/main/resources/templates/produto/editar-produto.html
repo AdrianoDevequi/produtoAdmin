@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container pt-5">
+            <h1 class="pb-3 fw-light">Editar produto</h1>
+            <form class="admin-form" th:action="@{/produtos/editar-produto/{id}(id=${atualizarProduto.id})}" th:object="${atualizarProduto}"
+            th:method="post" method="post">
+            <binder>
+              <binding property="nome" />
+              <binding property="descricao" />
+            </binder>
+          <div class="form-group pb-3">
+              <label for="newUserName">Nome do Produto</label>
+              <input type="text" class="form-control" th:field="*{nome}" id="newUserName"
+                     placeholder="Digite o nome">
+                     <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+          </div>
+          <div class="form-group pb-3">
+              <label for="newUserName">Descrição do produto</label>
+              <input type="text" class="form-control" th:field="*{descricao}" id="newUserName"
+                     placeholder="Digite a descrição">
+                     <p class="text-danger" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></p>
+          </div>
+          <div class="form-group pb-3">
+              <label for="newUserName">Preço do produto</label>
+              <input type="text" class="form-control" th:field="*{preco}" id="newUserName"
+                     placeholder="Digite o preço">
+                     <p class="text-danger" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></p>
+          </div>
+          <div class="form-group pb-3">
+              <label for="" >Selecione o fornecedor</label>
+              <select class="form-select" name="fornecedorid">
+                  <option>Selecione</option>
+                  <option th:each="fornecedor : ${fornecedores}" th:value="${fornecedor.id}" th:text="${fornecedor.nome}" th:selected="${fornecedor.id==fornecedor_sel.id}"></option>
+              </select>
+          </div>
+          <div class="form-group pb-3">
+              <label for="" >Selecione a empresa</label>
+              <select class="form-select" name="empresaid">
+                  <option>Selecione</option>
+                  <option th:each="empresa : ${empresas}" th:value="${empresa.id}" th:text="${empresa.nome}" th:selected="${empresa.id==empresa_sel.id}"></option>
+              </select>
+          </div>
+          <div class="form-group pb-3">
+              <label for=""  >Selecione a categoria</label>
+              <select class="form-select" id="categoriaid" name="categoriaid"  >
+                  <option>Selecione</option>
+                  <option th:each="categoria,rowStat : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" th:selected="${categoria.id==categoria_sel.id}"></option>
+              </select>
+          </div>
+          <div class="row pt-3">
+              <div class="col">
+                  <a class="btn btn-dark" th:href="@{/produtos/lista-produtos}">Cancel</a>
+                  <button type="submit" class="btn btn-success">Salvar</button>
+              </div>
+          </div>
+      </form>
+               
+  
+        </div>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<script src="https://use.fontawesome.com/c0c323679c.js"></script>
+
+
+<body>
+
+<!--Navbar-->
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div class="container" style="padding-bottom:25px;">
+    <div class="row">
+        <div class="card col-6 mx-auto" style="width: 30rem; margin-top: 80px;">
+            <div class="card-body">
+                <h4 class="card-title pb-4">Fazer cadastro:</h4>
+                <!--Form-->
+                <form th:action="@{/submit-registration}" th:object="${userDto}"  th:method="post" method="post" action="register">
+                    <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+                        <li class="text-danger" th:each="err : ${#fields.errors('global')}" th:text="${err}">Campo inválido</li>
+                    </ul>
+                    <div class="form-group pb-3">
+                        <label for="Name">Nome</label>
+                        <input type="text" class="form-control" th:field="*{name}" id="name" placeholder="Digite o nome">
+                        <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="Surname">Sobrenome</label>
+                        <input type="text" class="form-control" th:field="*{surname}" id="surname" placeholder="Digite sobrenome">
+                        <p class="text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="Username">Usuário</label>
+                        <input type="text" class="form-control" th:field="*{username}" id="username" placeholder="Digite o nome de usuário">
+                        <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label for="Email">E-mail</label>
+                        <input th:type="email" type="email" class="form-control" th:field="*{email}" id="email" aria-describedby="emailHelp" placeholder="Digite o e-mail">
+                        <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label th:for="password" for="Password">Senha</label>
+                        <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Senha">
+                        <p class="text-danger"th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                    </div>
+                    <div class="form-group pb-3">
+                        <label th:for="matchingPassword" for="matchingPassword">Confirmar senha</label>
+                        <input type="password" class="form-control" th:field="*{matchingPassword}" id="matchingPassword" placeholder="Confirme a senha">
+                        <p class="text-danger"th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-3">Fazer cadastro</button>
+                </form>
+                <p>Já tem uma conta? <a href="/login.html">Fazer o login</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

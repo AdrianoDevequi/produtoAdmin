@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+</head>
+<body>
+
+<nav th:replace="fragments/header :: nav"></nav>
+
+        <div class="container pt-5">
+            <h1 class="pb-3 fw-light">Cadastrar nova empresa</h1>
+                    <form class="admin-form" th:action="@{/empresas/cadastrar-empresa}" th:object="${novaEmpresa}"
+                          th:method="post" method="post">
+                          
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Nome da Empresa</label>
+                            <input type="text" class="form-control" th:field="*{nome}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">E-mail</label>
+                            <input type="text" class="form-control" th:field="*{email}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Telefone</label>
+                            <input type="text" class="form-control" th:field="*{telefone}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></p>
+                        </div>
+                        <h3 class="pb-2 pt-3 fw-light">Endereço</h3>
+                        <hr>
+                        <div th:object="${novoEndereco}" >
+                            
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Logradouro</label>
+                            <input type="text" class="form-control" th:field="*{logradouro}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('logradouro')}" th:errors="*{logradouro}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Bairro</label>
+                            <input type="text" class="form-control" th:field="*{bairro}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('bairro')}" th:errors="*{bairro}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Cep</label>
+                            <input type="text" class="form-control" th:field="*{cep}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Numero</label>
+                            <input type="text" class="form-control" th:field="*{numero}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Complemento</label>
+                            <input type="text" class="form-control" th:field="*{complemento}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('complemento')}" th:errors="*{complemento}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">Cidade</label>
+                            <input type="text" class="form-control" th:field="*{cidade}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}"></p>
+                        </div>
+                        <div class="form-group pb-3">
+                            <label for="newUserName">UF</label>
+                            <input type="text" class="form-control" th:field="*{uf}" id="newUserName"
+                                   placeholder="Digite o nome">
+                                   <p class="text-danger" th:if="${#fields.hasErrors('uf')}" th:errors="*{uf}"></p>
+                        </div>
+                    </div>
+                        <div class="row pt-3 pb-5">
+                            <div class="col">
+                                <a class="btn btn-dark" th:href="@{/empresas/lista-empresas}">Cancel</a>
+                                <button type="submit" class="btn btn-success">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+               
+  
+        </div>
+
+
+<footer th:replace="fragments/footer :: footer"></footer>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+
+</body>
+</html>

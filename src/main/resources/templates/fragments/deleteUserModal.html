@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+  
+  <!-- Modal Usuário-->
+  <div th:fragment="delete-user-modal" id="delete-user-modal" >
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Tem certeza que deseja deletar esse usuário?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a type="button" class="btn btn-danger" onclick="deleteEntity('user')"
+                       style="text-decoration: none;  color: #ffffff;">Deletar
+                    </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Modal Fornecedor-->
+  <div th:fragment="delete-fornecedor-modal" id="" >
+    <div class="modal fade" id="delete-fornecedor-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Remover fornecedor</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Tem certeza que deseja deletar esse fornecedor?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a type="button" class="btn btn-danger" onclick="deleteEntityFornecedor('fornecedor')"
+                         style="text-decoration: none;  color: #ffffff;">Deletar
+                      </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Categoria-->
+  <div th:fragment="delete-categoria-modal" id="" >
+    <div class="modal fade" id="delete-categoria-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Remover categoria</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Tem certeza que deseja deletar essa categoria?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a type="button" class="btn btn-danger" onclick="deleteEntityCategoria('categoria')"
+                         style="text-decoration: none;  color: #ffffff;">Deletar
+                      </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Empresas-->
+  <div th:fragment="delete-empresa-modal" id="" >
+    <div class="modal fade" id="delete-empresa-modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="">Remover empresa</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Tem certeza que deseja deletar essa empresa?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a type="button" class="btn btn-danger" onclick="deleteEntityEmpresa('empresa')"
+                         style="text-decoration: none;  color: #ffffff;">Deletar
+                      </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Modal Produtos-->
+    <div th:fragment="delete-produto-modal" id="" >
+      <div class="modal fade" id="delete-produto-modal" tabindex="-1" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="">Remover produto</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja deletar esse produto?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <a type="button" class="btn btn-danger" onclick="deleteEntityProduto('produto')"
+                           style="text-decoration: none;  color: #ffffff;">Deletar
+                        </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
