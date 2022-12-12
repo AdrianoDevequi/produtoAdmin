@@ -1,4 +1,4 @@
-package com.kemal.spring.domain;
+package com.admin.spring.domain;
 
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.kemal.spring;
+package com.admin.spring;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
