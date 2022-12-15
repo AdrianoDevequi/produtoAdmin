@@ -36,7 +36,7 @@
                                 <td th:text="${prod.fornecedor.nome}"></td>
 
                                 <!--Editar -->
-                                <td><a style="text-decoration: none; color:blue"
+                                <td><a style="text-decoration: none; color:#157347"
                                     th:href="@{/produtos/editar-produto/{id}(id=${prod.id})}"
                                     class="editBtn" data-toggle="tooltip"
                                     data-placement="right" title="Editar">
@@ -56,7 +56,7 @@
                     </table>
                 </div>
             </div>
-            <div th:replace="fragments/deleteUserModal :: delete-produto-modal"></div>
+            <div th:replace="fragments/deleteModal :: delete-produto-modal"></div>
             <div class="row pb-5">
                 <div class="col">
                     <a th:href="@{/produtos/cadastrar-produto}" >
