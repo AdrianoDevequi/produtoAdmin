@@ -68,8 +68,9 @@ public class EmpresaController {
 		@RequestMapping(value = "/cadastrar-empresa", method = RequestMethod.POST)
     public ModelAndView novaEmpresa(
 							  @ModelAttribute("novaEmpresa") @Valid DadosCadastroEmpresa novaEmpresa,
+							  BindingResult bindingResultEmpresa,
 							  @ModelAttribute("novoEndereco") @Valid DadosCadastroEndereco novoEndereco,
-                              BindingResult bindingResult,
+                              BindingResult bindingResultEndereco,
                               RedirectAttributes redirectAttributes,
 							  Empresa empresa,
 							  Endereco endereco,
@@ -79,15 +80,13 @@ public class EmpresaController {
 							  ) {
 		
 
-		if (bindingResult.hasErrors()) {
+		if (bindingResultEmpresa.hasFieldErrors() || bindingResultEndereco.hasFieldErrors()) {
 			modelAndView.setViewName("/empresa/cadastrar-empresa");
 		}else{
 
 			//enderecoRepository.save(new Endereco(novoEndereco));
 			novaEmpresa.setEndereco(novoEndereco);
 			repository.save(new Empresa(novaEmpresa));
-			
-			
 			
 			redirectAttributes.addFlashAttribute("fornecedorSalvo", true);
 
@@ -151,14 +150,6 @@ public class EmpresaController {
 		
 		return modelAndView;
 	}
-	/* 
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-	@Transactional
-	public void excluir(@PathVariable Long id) {
-		repository.deleteById(id);
-		
-	}
-*/
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Empresa> remove(@PathVariable String id) {
 		repository.deleteById(Long.valueOf(id));

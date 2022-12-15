@@ -8,17 +8,6 @@ import com.admin.spring.api.fornecedor.DadosCadastroFornecedor;
 
 public class DadosCadastroProduto{
 		
-/* 	DadosCadastroProduto(
-		@NotBlank
-		String nome, 
-		@NotBlank
-		String descricao, 
-		@NotBlank
-		String preco,
-		Categoria categoria,
-		DadosCadastroFornecedor fornecedor,
-		DadosCadastroEmpresa empresa) 
-	{}		 */
 	private String nome;
 	private String descricao;
 	private String preco;

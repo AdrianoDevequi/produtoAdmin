@@ -189,25 +189,15 @@ public class ProdutoController {
 			redirectAttributes.addFlashAttribute("produtoAtualizado", true);
 			
 			}
-
-
 		
 		return modelAndView;
 	}
-	
-	/* 
-	@DeleteMapping(path = "/{id}")
-	@Transactional
-	public void excluir(@PathVariable Long id) {
-		repository.deleteById(id);
-	}*/
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Empresa> remove(@PathVariable String id) {
 		repository.deleteById(Long.valueOf(id));
 		return ResponseEntity.noContent().build();
 	}
-
 
 	private static void logJava(String data) {
         try {
