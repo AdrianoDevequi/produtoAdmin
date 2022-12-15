@@ -28,7 +28,7 @@
 
 
                                 <!--Editar -->
-                                <td><a style="text-decoration: none; color:blue"
+                                <td><a style="text-decoration: none; color:#157347"
                                     th:href="@{/categorias/editar-categoria/{id}(id=${cat.id})}"
                                     class="editBtn" data-toggle="tooltip"
                                     data-placement="right" title="Editar">
@@ -48,7 +48,7 @@
                     </table>
                 </div>
             </div>
-            <div th:replace="fragments/deleteUserModal :: delete-categoria-modal"></div>
+            <div th:replace="fragments/deleteModal :: delete-categoria-modal"></div>
             <a th:href="@{/categorias/cadastrar-categoria}" >
                 <button type="button" class="btn btn-success">Nova categoria</button>
             </a>
