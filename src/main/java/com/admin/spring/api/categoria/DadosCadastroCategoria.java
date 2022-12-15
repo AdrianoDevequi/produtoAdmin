@@ -7,11 +7,11 @@ import javax.validation.constraints.NotBlank;
 public class DadosCadastroCategoria{
 	DadosCadastroCategoria(
 		Long id,
-		@NotBlank
 		String nome) 
 		{}
-
+		
 		private Long id;
+		@NotBlank(message = "O campo nome é obrigatório")
 		private String nome;
 
 

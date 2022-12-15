@@ -1,14 +1,10 @@
 package com.admin.spring.api.categoria;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.admin.spring.api.produto.Produto;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

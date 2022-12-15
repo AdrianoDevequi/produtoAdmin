@@ -2,7 +2,6 @@ package com.admin.spring.api.empresa;
 
 import com.admin.spring.api.endereco.Endereco;
 
-
 public record DadosListagemEmpresa(		
 		Long id,
 		String nome,

@@ -33,7 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.admin.spring.api.empresa.EmpresaRepository;
 import com.admin.spring.api.endereco.DadosAtualizarEndereco;
-import com.admin.spring.api.endereco.DadosEndereco;
+import com.admin.spring.api.endereco.DadosCadastroEndereco;
 import com.admin.spring.api.endereco.Endereco;
 import com.admin.spring.api.endereco.EnderecoRepository;
 import com.admin.spring.api.empresa.DadosAtualizarEmpresa;
@@ -68,7 +68,7 @@ public class EmpresaController {
 		@RequestMapping(value = "/cadastrar-empresa", method = RequestMethod.POST)
     public ModelAndView novaEmpresa(
 							  @ModelAttribute("novaEmpresa") @Valid DadosCadastroEmpresa novaEmpresa,
-							  @ModelAttribute("novoEndereco") @Valid DadosEndereco novoEndereco,
+							  @ModelAttribute("novoEndereco") @Valid DadosCadastroEndereco novoEndereco,
                               BindingResult bindingResult,
                               RedirectAttributes redirectAttributes,
 							  Empresa empresa,

@@ -1,7 +1,6 @@
 package com.admin.spring.api.empresa;
 
 import javax.persistence.CascadeType;
-import javax.persistence.ConstraintMode;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

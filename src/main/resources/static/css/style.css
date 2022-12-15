@@ -204,3 +204,26 @@ footer {
 .img-slide-home{
 	padding: 40px;
 }
+.img-bg-login {
+    background-image: url(../images/bg-login.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 340px;
+    background-size: cover;
+    background-color: #1e3381;
+}
+
+.text-danger{
+    margin: 0;
+}
+
+hr {
+    border-color: #cdcdcd;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--azul-principal-hover);
+}
+
+footer a {
+    color: darkgrey;
+}

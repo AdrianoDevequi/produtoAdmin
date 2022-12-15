@@ -37,7 +37,7 @@ import com.admin.spring.api.categoria.DadosCadastroCategoria;
 import com.admin.spring.api.empresa.DadosCadastroEmpresa;
 import com.admin.spring.api.empresa.Empresa;
 import com.admin.spring.api.empresa.EmpresaRepository;
-import com.admin.spring.api.endereco.DadosEndereco;
+import com.admin.spring.api.endereco.DadosCadastroEndereco;
 import com.admin.spring.api.fornecedor.DadosCadastroFornecedor;
 import com.admin.spring.api.fornecedor.Fornecedor;
 import com.admin.spring.api.fornecedor.FornecedorRepository;
@@ -108,7 +108,7 @@ public class ProdutoController {
 
 			var empresa= empresaRepository.findById(Long.parseLong(novoProduto.getEmpresaid())).get();
 			
-			DadosEndereco ende = new DadosEndereco(empresa.getEndereco().getId());
+			DadosCadastroEndereco ende = new DadosCadastroEndereco(empresa.getEndereco().getId());
 			
 			novoProduto.setEmpresa(new DadosCadastroEmpresa(empresa.getId(), ende));
 			

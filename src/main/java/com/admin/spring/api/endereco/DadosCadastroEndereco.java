@@ -3,7 +3,7 @@ package com.admin.spring.api.endereco;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
-public class DadosEndereco{
+public class DadosCadastroEndereco{
 		private Long id;
 		@NotBlank
 		private String logradouro; 
@@ -20,10 +20,10 @@ public class DadosEndereco{
 		private String numero;
 
 
-	public DadosEndereco() {
+	public DadosCadastroEndereco() {
 	}
 
-	public DadosEndereco(Long id, String logradouro, String bairro, String cep, String cidade, String uf, String complemento, String numero) {
+	public DadosCadastroEndereco(Long id, String logradouro, String bairro, String cep, String cidade, String uf, String complemento, String numero) {
 		this.id = id;
 		this.logradouro = logradouro;
 		this.bairro = bairro;
@@ -34,7 +34,7 @@ public class DadosEndereco{
 		this.numero = numero;
 	}
 
-	public DadosEndereco(Long id) {
+	public DadosCadastroEndereco(Long id) {
 		this.id = id;
 	}
 
@@ -102,42 +102,42 @@ public class DadosEndereco{
 		this.numero = numero;
 	}
 
-	public DadosEndereco id(Long id) {
+	public DadosCadastroEndereco id(Long id) {
 		setId(id);
 		return this;
 	}
 
-	public DadosEndereco logradouro(String logradouro) {
+	public DadosCadastroEndereco logradouro(String logradouro) {
 		setLogradouro(logradouro);
 		return this;
 	}
 
-	public DadosEndereco bairro(String bairro) {
+	public DadosCadastroEndereco bairro(String bairro) {
 		setBairro(bairro);
 		return this;
 	}
 
-	public DadosEndereco cep(String cep) {
+	public DadosCadastroEndereco cep(String cep) {
 		setCep(cep);
 		return this;
 	}
 
-	public DadosEndereco cidade(String cidade) {
+	public DadosCadastroEndereco cidade(String cidade) {
 		setCidade(cidade);
 		return this;
 	}
 
-	public DadosEndereco uf(String uf) {
+	public DadosCadastroEndereco uf(String uf) {
 		setUf(uf);
 		return this;
 	}
 
-	public DadosEndereco complemento(String complemento) {
+	public DadosCadastroEndereco complemento(String complemento) {
 		setComplemento(complemento);
 		return this;
 	}
 
-	public DadosEndereco numero(String numero) {
+	public DadosCadastroEndereco numero(String numero) {
 		setNumero(numero);
 		return this;
 	}

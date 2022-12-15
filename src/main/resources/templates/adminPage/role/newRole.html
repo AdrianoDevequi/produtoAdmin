@@ -6,30 +6,22 @@
 
 <nav th:replace="fragments/header :: nav"></nav>
 
-<div id="admin-section">
-    <div class="admin-inner">
-        <div class="container">
-            <div class="d-flex flex-row" >
-                <div th:replace="fragments/adminSidebar :: admin-sidebar"></div>
-                <div id="admin-content" >
-                    <form class="admin-form" th:action="@{/adminPage/roles/newRole}"  th:object="${newRole}" th:method="post" method="post">
-                        <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
-                            <li class="text-danger" th:each="err : ${#fields.errors('global')}"
-                                th:text="${err}">Input is incorrect</li>
-                        </ul>
-                        <div class="form-group">
-                            <label for="newRolename">Name</label>
-                            <input type="text" class="form-control" th:field="*{name}" id="newRolename" placeholder="Enter name">
-                            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
-                        </div>
-                        <a class="btn btn-dark" th:href="@{/adminPage/roles}">Cancel</a>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
+    <div class="container pt-5">
+        <h1 class="pb-3 fw-light">Cadastrar nova função</h1>
+        <form class="admin-form" th:action="@{/adminPage/roles/newRole}"  th:object="${newRole}" th:method="post" method="post">
+            <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+                <li class="text-danger" th:each="err : ${#fields.errors('global')}"
+                    th:text="${err}">Campo inválido</li>
+            </ul>
+            <div class="form-group pb-3">
+                <label for="newRolename">Nome da função</label>
+                <input type="text" class="form-control" th:field="*{name}" id="newRolename" placeholder="ROLE_">
+                <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
             </div>
-        </div>
+            <a class="btn btn-dark" th:href="@{/adminPage/roles}">Cancelar</a>
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
     </div>
-</div>
 
 <footer th:replace="fragments/footer :: footer"></footer>
 <div th:replace="fragments/jsScripts :: scripts"></div>

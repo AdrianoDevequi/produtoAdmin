@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Endereco {
 
-    public Endereco(DadosEndereco dados) {
+    public Endereco(DadosCadastroEndereco dados) {
  		if(dados.getId() != null) {
     		this.id = dados.getId();
     	} 
@@ -32,16 +32,6 @@ public class Endereco {
 		this.numero = dados.getNumero();
 		this.complemento = dados.getComplemento();
 		this.cidade = dados.getCidade(); 
-/* 
-		this.id = 2l;
-		this.logradouro = "teste";
-		this.bairro = "teste";
-		this.cep = "86088050";
-		this.uf = "teste";
-		this.numero = "teste";
-		this.complemento = "teste";
-		this.cidade = "teste";
-*/		
 	}
     
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)

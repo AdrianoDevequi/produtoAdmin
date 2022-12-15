@@ -19,8 +19,6 @@ public class DadosAtualizarEndereco{
 		private String complemento; 
 		private String numero;
 
-
-
 	public DadosAtualizarEndereco() {
 	}
 

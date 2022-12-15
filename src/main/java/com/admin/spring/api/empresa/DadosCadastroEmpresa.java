@@ -1,38 +1,34 @@
 package com.admin.spring.api.empresa;
 
-import java.util.Objects;
-
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import com.admin.spring.api.endereco.DadosEndereco;
+import com.admin.spring.api.endereco.DadosCadastroEndereco;
 
 public class DadosCadastroEmpresa{
 
-		Long id;
-		@NotBlank
-		String nome;
+		private Long id;
+		@NotBlank(message = "O campo nome é obrigatório")
+		private String nome;
 		@Email
-		String email;
+		private String email;
 		@NotBlank
-		String telefone;
+		private String telefone;
 		@Valid
-		DadosEndereco endereco;
+		private DadosCadastroEndereco endereco;
 		
-
-
 	public DadosCadastroEmpresa() {
 	}
 
-	public DadosCadastroEmpresa(Long id, String nome, String email, String telefone, DadosEndereco endereco) {
+	public DadosCadastroEmpresa(Long id, String nome, String email, String telefone, DadosCadastroEndereco endereco) {
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
 		this.endereco = endereco;
 	}
-	public DadosCadastroEmpresa(Long id, DadosEndereco endereco) {
+	public DadosCadastroEmpresa(Long id, DadosCadastroEndereco endereco) {
 		this.id = id;
 		this.endereco = endereco;
 	}
@@ -68,11 +64,11 @@ public class DadosCadastroEmpresa{
 		this.telefone = telefone;
 	}
 
-	public DadosEndereco getEndereco() {
+	public DadosCadastroEndereco getEndereco() {
 		return this.endereco;
 	}
 
-	public void setEndereco(DadosEndereco endereco) {
+	public void setEndereco(DadosCadastroEndereco endereco) {
 		this.endereco = endereco;
 	}
 
@@ -96,7 +92,7 @@ public class DadosCadastroEmpresa{
 		return this;
 	}
 
-	public DadosCadastroEmpresa endereco(DadosEndereco endereco) {
+	public DadosCadastroEmpresa endereco(DadosCadastroEndereco endereco) {
 		setEndereco(endereco);
 		return this;
 	}
