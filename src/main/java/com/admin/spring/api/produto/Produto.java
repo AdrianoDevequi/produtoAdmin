@@ -32,7 +32,7 @@ public class Produto {
 		this.descricao = dados.getDescricao();
 		this.preco = dados.getPreco();
 
-		this.categoria = dados.getCategoria(); //new Categoria(dados.getCategoria());
+		this.categoria = dados.getCategoria(); 
 		
 		this.fornecedor = new Fornecedor(dados.getFornecedor());
 

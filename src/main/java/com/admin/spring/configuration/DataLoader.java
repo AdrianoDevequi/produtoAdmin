@@ -39,7 +39,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         List<Role> adminRoles = Collections.singletonList(roleAdmin);
         List<Role> userRoles = Collections.singletonList(roleUser);
 
-        createUserIfNotFound("adriano@gmail.com", "Adriano", "Devequi", "adrianodevequi", "@produtos1202", adminRoles);
+        createUserIfNotFound("demo@demo.com", "demo", "demo", "demo", "@produtos1202", adminRoles);
 
         for (int i = 1; i < 10; i++)
             createUserIfNotFound("usuario" + i + "@gmail.com", "Usuario" + i, "Usuario" + i, "usuario" + i, "usuario" + i, userRoles);
